@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seipati Bridgett Pampiri - Software Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #ff6b9d 0%, #4facfe 50%, #9b59b6 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b9d;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #ff6b9d;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color:#9b59b6;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #ff8fab, #d63384);
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #333;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            background: white;
+            margin: 20px 0;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b9d, #4facfe, #9b59b6);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background:
+                url('photo.jpeg') center/cover no-repeat,
+                linear-gradient(135deg, #ff6b9d, #4facfe, #9b59b6);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+        }
+
+
+        .profile-placeholder {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b9d, #4facfe, #9b59b6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.4);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #ff6b9d, #4facfe);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(135deg, #ff6b9d, #4facfe, #9b59b6);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2rem;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #ff6b9d;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #4facfe;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .experience-company {
+            color: #9b59b6;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            background: linear-gradient(135deg, #ff6b9d, #9b59b6);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .experience-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .experience-description ul {
+            margin-left: 1rem;
+        }
+
+        .experience-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #ff6b9d, #4facfe, #9b59b6);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        
+
+        .contact-item h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: #ff6b9d;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+            color: #4facfe;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-placeholder {
+                width: 200px;
+                height: 200px;
+                font-size: 3rem;
+            }
+
+            .experience-timeline {
+                padding-left: 1rem;
+            }
+
+            .experience-item {
+                margin-left: 1rem;
+            }
+
+            .experience-item::before {
+                left: -2.5rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 200px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll padding for fixed header */
+        section {
+            scroll-margin-top: 100px;
+        }
+
+        /* Pure CSS animations */
+        .section {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .section:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .section:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">SBP</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Seipati Bridgett Pampiri</h1>
+            <p class="subtitle">Software Developer & Systems Administrator</p>
+            <p class="location">Maseru, Lesotho</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                <a href="https://github.com/Bridgett-Pampiri" target="_blank" class="btn btn-secondary">View GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-photo" aria-label="Seipati Bridgett Pampiri" role="img"></div>
+
+                </div>
+                <div class="about-text">
+                    <p>I'm an experienced software developer and systems administrator with hands-on expertise in project coordination, data management, technical support, and system optimization. With a Bachelor of Science in Computer Science (2:1) from the National University of Lesotho, I bring a proven ability to lead and support large-scale projects, including financial and HR systems.</p> 
+                    <br>
+
+                    <p>My passion lies in automating processes and improving system efficiency in fast-paced environments. I have experience facilitating technical learning for 200+ students, building comprehensive web applications, and developing mobile solutions that prioritize user safety and experience.</p>
+                    <br>
+
+                    <p>I'm skilled in multiple programming languages and web technologies, with particular expertise in full-stack development, database management, and creating responsive, user-friendly applications that solve real-world problems.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="#" class="btn btn-primary" download="Seipati_CV.pdf"> Download My CV</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Dart</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Angular</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Material UI</span>
+                        <span class="skill-tag">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & APIs</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Firebase</span>
+                        <span class="skill-tag">Google Maps API</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Development Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Linear</span>
+                        <span class="skill-tag">Office Suite</span>
+                        <span class="skill-tag">Flutter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Demonstrator</div>
+                            <div class="experience-company">National University of Lesotho</div>
+                        </div>
+                        <div class="experience-date">Sep 2024 - Jun 2025</div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Facilitated technical learning for 200+ students in computer labs, simplifying complex computing concepts</li>
+                            <li>Delivered hands-on instruction in Microsoft Office Suite, improving students' practical skills</li>
+                            <li>Designed and administered 4+ comprehensive assessments with consistent evaluation standards</li>
+                            <li>Automated administrative workflows, reducing manual data entry by an estimated 30%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Software Engineer Intern</div>
+                            <div class="experience-company">Nucleus Devs</div>
+                        </div>
+                        <div class="experience-date">Aug 2024 - Sep 2024</div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Built and optimized web applications, improving API response times and system performance</li>
+                            <li>Diagnosed and resolved 5+ critical production issues using Linear for tracking</li>
+                            <li>Participated in peer code reviews to uphold quality standards</li>
+                            <li>Delivered new user-requested features, increasing client satisfaction</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Demonstrator</div>
+                            <div class="experience-company">National University of Lesotho</div>
+                        </div>
+                        <div class="experience-date">Nov 2023 - May 2024</div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Delivered hands-on technical instruction and troubleshooting support</li>
+                            <li>Developed structured assessment frameworks for student progress tracking</li>
+                            <li>Streamlined academic processes by organizing digital records</li>
+                            <li>Collaborated with teaching staff to improve course delivery</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">Student Assistant</div>
+                            <div class="experience-company">National University of Lesotho</div>
+                        </div>
+                        <div class="experience-date">Sep 2022</div>
+                    </div>
+                    <div class="experience-description">
+                        <ul>
+                            <li>Migrated and verified 1,200+ student records with 100% accuracy</li>
+                            <li>Collaborated in 9-member team, reducing data transfer time by 40%</li>
+                            <li>Designed data verification protocols adopted as standard procedure</li>
+                            <li>Supported documentation and progress reporting to supervisors</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Probation Management System</div>
+                        <div class="project-date">Feb 2025 – May 2025</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Full-stack web application for managing employee probation, contracts, and organizational structure in academic (HR operations). Includes secure user roles, probation tracking, contract lifecycle automation, and system settings management.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Redux Toolkit</span>
+                            <span class="tech-tag">Material UI</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">Sequelize</span>
+                            <span class="tech-tag">MySQL</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" 
+                            onclick="alert('This project is private. Please contact me to request access.'); return false;" 
+                            class="btn btn-secondary" 
+                            style="padding: 0.5rem 1rem; font-size: 0.9rem;">
+                            View Code 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">PGC Academy Microfinance Management System</div>
+                        <div class="project-date">May 2024 - Nov 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Developed a comprehensive web application managing the complete loan lifecycle from application to repayment. Implemented secure role-based access control and created intuitive dashboards for different user types.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">RBAC</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" onclick="alert('This project is private and not publicly available.'); return false;" class="btn btn-secondary">View Code </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">PGC Academy Corporate Website</div>
+                        <div class="project-date">Feb 2024 - Apr 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Built a responsive corporate website with modern Material UI design framework. Implemented real-time content management system with backend integration and optimized for performance and SEO.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Material UI</span>
+                            <span class="tech-tag">Backend Integration</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" onclick="alert('This project is private and not publicly available.'); return false;" class="btn btn-secondary">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Crime Hot Spots & Route Safety Application</div>
+                        <div class="project-date">Sep 2022 - Jun 2023</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Developed a mobile application for personal safety and route optimization. Integrated real-time location services with Google Maps API for dynamic route planning and implemented Firebase backend for data synchronization.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Google Maps API</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="#" onclick="alert('This project is private and not publicly available.'); return false;" class="btn btn-secondary">View Code</a>
+                        </div>
+                    </div>
+                </div>
+
+        
+                
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Todo List Application</div>
+                        <div class="project-date">July 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Interactive todo list application with task management features. Allows users to add, edit, delete, and mark tasks as complete. Demonstrates JavaScript DOM manipulation and local storage.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Local Storage</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="https://github.com/Bridgett-Pampiri/todolistapp" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Enhanced Todo List App</div>
+                        <div class="project-date">July 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Advanced version of the todo list application with improved user interface and additional features. Enhanced functionality for better task organization and user experience.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Enhanced UI</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="https://github.com/Bridgett-Pampiri/Todo-list-app" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-title">Cost-Effective Instant Messaging</div>
+                        <div class="project-date">February 2022</div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">
+                            A messaging application project focused on cost-effective communication solutions. Developed with Java and includes MIT License for open-source contribution and collaboration.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Messaging System</span>
+                            <span class="tech-tag">MIT License</span>
+                            <span class="tech-tag">Open Source</span>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <a href="https://github.com/Bridgett-Pampiri/Cost-Effective-Instant-Massaging-Project" target="_blank" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">View Code </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
+                
+                <!-- Contact Form -->
+                <div style="max-width: 500px; margin: 2rem auto; background: #f8f9fa; padding: 2rem; border-radius: 15px;">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem; color: #333;">Send Me a Message</h3>
+                    <form action="mailto:bridgettpampiri01@gmail.com" method="post" enctype="text/plain">
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" name="name" placeholder="Your Name" required 
+                                   style="width: 100%; padding: 0.8rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; box-sizing: border-box;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="email" name="email" placeholder="Your Email" required 
+                                   style="width: 100%; padding: 0.8rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; box-sizing: border-box;">
+                        </div>
+                        <div style="margin-bottom: 1rem;">
+                            <input type="text" name="subject" placeholder="Subject" required 
+                                   style="width: 100%; padding: 0.8rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; box-sizing: border-box;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <textarea name="message" placeholder="Your Message" rows="5" required 
+                                      style="width: 100%; padding: 0.8rem; border: 2px solid #e9ecef; border-radius: 8px; font-size: 1rem; resize: vertical; box-sizing: border-box;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1rem;">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon"></div>
+                        <h4>Email</h4>
+                        <a href="mailto:bridgettpampiri01@gmail.com">bridgettpampiri01@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"></div>
+                        <h4>Phone</h4>
+                        <p>(+266) 5835 9391<br>(+266) 6275 5914</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"></div>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/Bridgett-Pampiri" target="_blank">github.com/Bridgett-Pampiri</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Seipati Bridgett Pampiri. All rights reserved.</p>
+        </div>
+    </footer>
+
+   
+</body>
+</html>
