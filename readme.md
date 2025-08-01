@@ -1,4 +1,4 @@
-# Seipati Bridgett Pampiri - Portfolio Website
+#Portfolio Website
 
 This is my personal portfolio website built using HTML and CSS. It showcases my skills, education, projects, and contact information in a clean, responsive design.
 
@@ -25,7 +25,7 @@ This portfolio presents my background as a Software Developer and Systems Admini
 ---
 ## Vercel link
 ```bash
-  https://portfolio-blush-iota-gv0azdvvac.vercel.app/
+https://portfolio-blush-iota-gv0azdvvac.vercel.app/
 ```
 
 ## How to Run Locally
