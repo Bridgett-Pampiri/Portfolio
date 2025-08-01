@@ -23,15 +23,14 @@ This portfolio presents my background as a Software Developer and Systems Admini
 - *(No JavaScript or external libraries/frameworks used.)*
 
 ---
-
-## How to Run Locally
-
-1. **Download or clone the repository:**  
-   ```bash
-   git clone https://github.com/Bridgett-Pampiri/portfolio.git
-
----
 ## Vercel link
 ```bash
   https://portfolio-blush-iota-gv0azdvvac.vercel.app/
+```
+
+## How to Run Locally
+**Download or clone the repository:**  
+```bash
+git clone https://github.com/Bridgett-Pampiri/portfolio.git
+```
 
