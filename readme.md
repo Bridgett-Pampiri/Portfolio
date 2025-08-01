@@ -1,6 +1,6 @@
 # Seipati Bridgett Pampiri - Portfolio Website
 
-This is my personal portfolio website built using pure HTML and CSS. It showcases my skills, education, projects, and contact information in a clean, responsive design.
+This is my personal portfolio website built using HTML and CSS. It showcases my skills, education, projects, and contact information in a clean, responsive design.
 
 ---
 
@@ -13,8 +13,6 @@ This portfolio presents my background as a Software Developer and Systems Admini
 - An Education section with my academic qualifications and a downloadable CV.  
 - A Projects section showcasing three main projects with links to their repositories.  
 - A Contact section with my email, phone numbers, GitHub profile, and location.
-
-The website uses semantic HTML5 for structure and CSS3 for styling, including a modern glassmorphism design with a pink-blue-purple gradient theme. It is fully responsive for desktop, tablet, and mobile devices.
 
 ---
 
@@ -35,5 +33,5 @@ The website uses semantic HTML5 for structure and CSS3 for styling, including a 
 ---
 ## Vercel link
 ```bash
-https://portfolio-blush-iota-gv0azdvvac.vercel.app/
+  https://portfolio-blush-iota-gv0azdvvac.vercel.app/
 
